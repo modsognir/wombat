@@ -3,14 +3,14 @@
 module Wombat
   module Property
     module Locators
-      class Html < Base
+      class Node < Base
         def locate(context, page = nil)
           node = locate_nodes(context).first
           value =
             unless node
               nil
             else
-              node.inner_html.strip
+              node
             end
           super { value }
         end

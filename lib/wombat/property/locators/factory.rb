@@ -34,6 +34,8 @@ module Wombat
             Headers
           when :node
             Node
+          when :iterator_nodes
+            IteratorNodes
           else
             raise Wombat::Property::Locators::UnknownTypeException.new("Unknown property format #{property.format}.")
           end

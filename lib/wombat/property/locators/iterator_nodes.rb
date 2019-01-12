@@ -3,7 +3,7 @@
 module Wombat
   module Property
     module Locators
-      class Node < Base
+      class IteratorNodes < Base
         def locate(context, page = nil)
           super { locate_nodes(context).compact }
         end

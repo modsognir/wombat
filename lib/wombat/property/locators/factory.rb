@@ -8,6 +8,7 @@ require 'wombat/property/locators/list'
 require 'wombat/property/locators/text'
 require 'wombat/property/locators/headers'
 require 'wombat/property/locators/node'
+require 'wombat/property/locators/iterator_nodes'
 
 class Wombat::Property::Locators::UnknownTypeException < Exception; end;
 

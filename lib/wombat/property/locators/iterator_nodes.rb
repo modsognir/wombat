@@ -5,7 +5,7 @@ module Wombat
     module Locators
       class IteratorNodes < Base
         def locate(context, page = nil)
-          super { locate_nodes(context).compact }
+          super { locate_nodes(context) }
         end
       end
     end

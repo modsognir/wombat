@@ -43,7 +43,10 @@ module Wombat
       def parse(metadata, url=nil)
         @context = parser_for(metadata, url)
 
-        Wombat::Property::Locators::Factory.locator_for(metadata).locate(@context, @mechanize)
+        result = Wombat::Property::Locators::Factory.locator_for(metadata).locate(@context, @mechanize)
+        
+        @mechanize.shutdown
+        result
       end
 
       private

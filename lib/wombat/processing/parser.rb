@@ -29,10 +29,11 @@ module Wombat
       def initialize
         # http://stackoverflow.com/questions/6918277/ruby-mechanize-web-scraper-library-returns-file-instead-of-page
         @mechanize = Mechanize.new { |a|
-          a.post_connect_hooks << lambda { |_,_,response,_|
+          a.post_connect_hooks << lambda { |agent,_,response,_|
             if response.content_type.nil? || response.content_type.empty?
               response.content_type = 'text/html'
             end
+            agent.shutdown
           }
         }
         @mechanize.set_proxy(*Wombat.proxy_args) if Wombat.proxy_args
